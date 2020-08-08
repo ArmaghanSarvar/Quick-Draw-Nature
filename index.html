@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Quick Draw!</title>
+
+	<style>
+		@font-face { font-family: PencilDoodle; src: url('Assets/Fonts/PencilDoodle.otf'); }
+		@font-face { font-family: JoyfulJuliana; src: url('Assets/Fonts/JoyfulJuliana.ttf'); }
+		@font-face { font-family: NiceWritten; src: url('Assets/Fonts/NiceWritten.ttf'); }
+
+		::-webkit-scrollbar{
+			width: 8px;
+		}
+
+		::-webkit-scrollbar-track{
+			background: #f1f1f1;
+			border-radius: 4px;
+		}
+
+		::-webkit-scrollbar-thumb{
+			background: #888;
+			border-radius: 4px;
+		}
+
+		::-webkit-scrollbar-thumb:hover{
+			background: #555;
+		}
+
+		#predictionsTextbox{
+			overflow: hidden;
+		}
+
+		#predictionsTextbox:hover{
+			overflow-y: scroll;
+		}
+
+		p, textarea, li{
+			font-family: Tahoma;
+			font-size: 1em;
+			margin: 0px;
+			padding: 0px;
+		}
+
+		.tool{
+			background-color: white;
+			display: block;
+			margin: 0 auto;
+			position: relative;
+			top: 20px;
+			margin-bottom: 20px;
+			width: 80%;
+		}
+
+		.tool:hover{
+			background-color: lightblue;
+		}
+
+		img{
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body onresize="onResizeEvent()">
+	<div id="drawPromptPanel">
+		<div id="drawPromptPanelContent">
+			<p>
+				Depict mother nature in one of her forms as mentioned on the following list, and we will try to guess your drawing!<br>
+			</p>
+			<ul id="categoriesList"></ul>
+		</div>
+	</div>
+
+	<div id="aboutUsPanel">
+		<div id="aboutUsPanelContent">
+			<p>
+				Done by me and him, based on the dataset of Google's "Quick, Draw!". Follow me on Instagram! I post Piano stuff ^-^
+			</p>
+		</div>
+	</div>
+
+	<div id="toolsPanel">
+		<div id="toolsPanelContent">
+			<button class="tool" onclick="updateMarker(MARKER_STATUS_MARKER)"><img src="Assets/Images/marker.png"></button>
+			<button class="tool" onclick="updateMarker(MARKER_STATUS_ERASER)"><img src="Assets/Images/eraser.png"></button>
+			<button class="tool" onclick="clearCanvas()"><img src="Assets/Images/clear.png"></button>
+			<button class="tool" onclick="showCompressedImage()"><img src="Assets/Images/clear.png"></button>
+		</div>
+	</div>
+
+	<div id="canvasPanel">
+		<div id="canvasPanelContent">
+			<canvas id="canvas"></canvas>
+		</div>
+	</div>
+
+	<div id="predictionsPanel">
+		<div id="predictionsPanelContent">
+			<textarea readonly disabled id="predictionsTextbox"></textarea>
+		</div>
+	</div>
+</body>
+
+</html>
+
+<script type="text/javascript" src="Scripts/index.js"></script>
