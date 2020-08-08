@@ -177,7 +177,6 @@ function newPrediction(category){
 
 function updateMarker(status){
 	markerStatus = status;
-
 	switch(markerStatus){
 		case MARKER_STATUS_MARKER:
 			canvas.style.cursor = "url('Assets/Images/Cursors/cursor_marker.png') 0 32, auto";
